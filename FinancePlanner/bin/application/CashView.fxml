@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CashflowController">
+   <children>
+      <Button layoutX="211.0" layoutY="541.0" mnemonicParsing="false" onAction="#handleD" text="Goals" />
+      <Label layoutX="476.0" layoutY="27.0" text="Cashflow" />
+      <Label layoutX="208.0" layoutY="421.0" text="Enter a transation amount" />
+      <TextField fx:id="amount" layoutX="202.0" layoutY="457.0" />
+      <Button fx:id="button" layoutX="879.0" layoutY="540.0" mnemonicParsing="false" onAction="#addCashFlow" text="Add" />
+      <TextField fx:id="label" layoutX="590.0" layoutY="553.0" />
+      <Label layoutX="218.0" layoutY="35.0" text="Inflow" />
+      <Label layoutX="765.0" layoutY="35.0" text="Outflow" />
+      <Label layoutX="651.0" layoutY="519.0" text="Label" />
+      <GridPane layoutX="46.0" layoutY="410.0" prefHeight="143.0" prefWidth="149.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="100.0" minHeight="20.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Type" />
+            <VBox prefHeight="50.0" prefWidth="149.0" spacing="20.0" GridPane.rowIndex="1">
+               <children>
+                  <RadioButton fx:id="inc" mnemonicParsing="false" prefHeight="14.0" prefWidth="61.0" text="Income">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Type" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="exp" mnemonicParsing="false" text="Expense" toggleGroup="$Type" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <GridPane alignment="CENTER" layoutX="500.0" layoutY="403.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="125.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="508.0" text="Category" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="125.0" spacing="25.0">
+                     <children>
+                        <RadioButton fx:id="foodB" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="159.0" text="Food">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Category" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="shoppingB" mnemonicParsing="false" prefHeight="17.0" prefWidth="192.0" text="Shopping" toggleGroup="$Category" />
+                     </children>
+                     <padding>
+                        <Insets left="25.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="125.0" spacing="25.0">
+                     <children>
+                        <RadioButton fx:id="entB" mnemonicParsing="false" text="Entertainment" toggleGroup="$Category" />
+                        <RadioButton fx:id="genB" mnemonicParsing="false" text="General" toggleGroup="$Category" />
+                     </children>
+                     <padding>
+                        <Insets left="25.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="125.0" spacing="25.0">
+                     <children>
+                        <RadioButton fx:id="clothesB" mnemonicParsing="false" text="Clothes" toggleGroup="$Category" />
+                        <RadioButton fx:id="travelB" mnemonicParsing="false" text="Travel" toggleGroup="$Category" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="20.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="125.0" spacing="25.0">
+                     <children>
+                        <RadioButton fx:id="salaryB" mnemonicParsing="false" text="Salary" toggleGroup="$Category" />
+                        <RadioButton fx:id="otherB" mnemonicParsing="false" text="Other" toggleGroup="$Category" />
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <TextArea fx:id="inflowText" layoutX="46.0" layoutY="74.0" prefHeight="282.0" prefWidth="376.0" />
+      <TextArea fx:id="outflowText" layoutX="580.0" layoutY="73.0" prefHeight="282.0" prefWidth="376.0" />
+      <TextArea fx:id="inflowTotal" layoutX="46.0" layoutY="355.0" prefHeight="25.0" prefWidth="376.0" />
+      <TextArea fx:id="outflowTotal" layoutX="580.0" layoutY="355.0" prefHeight="38.0" prefWidth="376.0" />
+      <Label layoutX="480.0" layoutY="186.0" text="Balance" />
+      <TextArea fx:id="balanceText" layoutX="426.0" layoutY="215.0" prefHeight="38.0" prefWidth="149.0" />
+   </children>
+</AnchorPane>
